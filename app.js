@@ -48,6 +48,11 @@ app.post("/listings", async (req, res) => {
   res.redirect("/listings");
 });
 
+//Show Route
+app.get("/listings/:id/show",(req, res)=>{
+  
+})
+
 app.listen(8080, () => {
   console.log("Server is listening on port 8080");
 });
