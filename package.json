@@ -1,0 +1,28 @@
+{
+  "name": "travii",
+  "version": "1.0.0",
+  "description": "Travii is a modern, full-stack **vacation rental platform** where users can **discover, book, and manage stays** across the world.  \r The goal of Travii is to make travel **simpler, smarter, and more accessible**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourvinii/Travii---Vacation-Rentals-Platform.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yourvinii/Travii---Vacation-Rentals-Platform/issues"
+  },
+  "homepage": "https://github.com/yourvinii/Travii---Vacation-Rentals-Platform#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.18.3"
+  }
+}
