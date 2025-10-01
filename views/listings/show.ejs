@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travii</title>
 </head>
+
 <body>
   <h1>Show in detail</h1>
   <ul>
-    <li><%= listing.title  %></li>
-    <li><%= listing.description  %></li>
-    <li><%= listing.price  %></li>
-    <li><%= listing.location  %></li>
-    <li><%= listing.country  %></li>
+    <li>
+      <%= listing.title %>
+    </li>
+    <li>
+      <%= listing.description %>
+    </li>
+    <li>
+      <%= listing.price %>
+    </li>
+    <li>
+      <%= listing.location %>
+    </li>
+    <li>
+      <%= listing.country %>
+    </li>
   </ul>
   <a href="/listings/<%= listing._id  %>/edit">Edit</a>
   <br>
-  <button>Delete</button>
-  
+  <form method="POST" action="/listings/<%= listing._id  %>?_method=DELETE">
+    <button>Delete</button>
+  </form>
+
 </body>
+
 </html>
