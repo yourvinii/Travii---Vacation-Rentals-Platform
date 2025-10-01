@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 const path = require("path");
+const methodOverride = require("method-override");
 
 // Serve(use) static files
 app.use(express.static(path.join(__dirname, "/public")));
@@ -14,6 +15,9 @@ app.set("views", path.join(__dirname, "/views"));
 //Parse JSON Data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//Method Override
+app.use(methodOverride("_method"));
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/travii";
 
