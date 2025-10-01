@@ -13,7 +13,7 @@
     <button>Create New Listing</button>
   </form>
   <% for(let listing of listings) {%>
-    <a href="/listings/show">
+    <a href="/listings/<%= listing._id  %>/show">
       <ul>
         <li>
           <%= listing.title %>
