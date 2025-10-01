@@ -10,7 +10,13 @@
 <body>
   <h1>All Listings</h1>
   <% for(let listing of listings) {%>
-
+    <a href="/listings/show">
+      <ul>
+        <li>
+          <%= listing.title %>
+        </li>
+      </ul>
+    </a>
     <% } %>
 
 </body>
