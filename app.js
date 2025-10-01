@@ -31,7 +31,10 @@ app.get("/", (req, res) => {
 });
 
 //Index Route All Listing
-app.get("/listings", (req, res) => {});
+app.get("/listings", async (req, res) => {
+  let listings = await Listing.find();
+  res.render()
+});
 
 app.listen(8080, () => {
   console.log("Server is listening on port 8080");
