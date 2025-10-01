@@ -41,6 +41,13 @@ app.get("/listings/new", (req, res) => {
   res.render("listings/new.ejs");
 });
 
+//POST request to /listings so that new listing data from the form actually gets saved to your database.
+app.post("/listings", async (req, res) => {
+  let newListing = new Listing(req.body.listing);
+  await newListing.save();
+  res.redirect("/listings");
+});
+
 app.listen(8080, () => {
   console.log("Server is listening on port 8080");
 });
