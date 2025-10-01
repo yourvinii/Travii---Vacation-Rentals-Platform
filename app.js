@@ -2,6 +2,18 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
+const path = require("path");
+
+// Serve(use) static files
+app.use(express.static(path.join(__dirname, "/public")));
+
+//Set view engine to ejs
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
+
+//Parse JSON Data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/travii";
 
@@ -13,10 +25,13 @@ async function main() {
   await mongoose.connect(MONGO_URL);
 }
 
-
+//Home Route
 app.get("/", (req, res) => {
   res.send("Home Page");
 });
+
+//Index Route All Listing
+app.get("/listings", (req, res) => {});
 
 app.listen(8080, () => {
   console.log("Server is listening on port 8080");
