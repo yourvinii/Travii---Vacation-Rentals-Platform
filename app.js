@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 //Index Route All Listing
 app.get("/listings", async (req, res) => {
   let listings = await Listing.find();
-  res.render()
+  res.render("listings/index.ejs", { listings });
 });
 
 app.listen(8080, () => {
