@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travii</title>
-</head>
-
+<% layout("/layouts/boilerplate.ejs") %>
 <body>
   <h1>Edit your Listing</h1>
   <form method="POST" action="/listings/<%= listing._id  %>?_method=PUT">
@@ -33,4 +26,3 @@
 
 </body>
 
-</html>
