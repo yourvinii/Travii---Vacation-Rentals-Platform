@@ -1,7 +1,7 @@
 body {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 
 }
 
@@ -46,4 +46,42 @@ body {
   text-decoration: none;
   color: black;
 
+}
+.f-info-links a:hover {
+  text-decoration: underline;
+
+}
+
+/* New Page  */
+.save-btn {
+  background-color: #FF385C !important;
+  border: none !important;
+}
+
+ /* Cards */
+.card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+.card-body {
+  padding: 0 !important;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+/* Card Effects  */
+.card-img-overlay {
+  opacity: 0;
+}
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
 }
