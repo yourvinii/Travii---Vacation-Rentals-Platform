@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 //Method Override
 app.use(methodOverride("_method"));
 
-// use ejs-locals for all ejs templates:
+// use ejs-locals for all ejs templates:::::
 app.engine("ejs", ejsMate);
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/travii";
