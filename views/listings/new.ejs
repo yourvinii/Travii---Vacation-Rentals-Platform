@@ -3,38 +3,57 @@
     <div class="col-8 offset-2">
 
       <h1>Create new Listing</h1>
-      <form method="POST" action="/listings">
+      <form method="POST" action="/listings" novalidate class="needs-validation">
 
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input type="text" name="listing[title]" placeholder="Cozy Mountain Cabin" class="form-control">
+          <input type="text" name="listing[title]" placeholder="Cozy Mountain Cabin" class="form-control" required>
+          <div class="valid-feedback">
+            Title Looks good!
+          </div>
         </div>
 
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
-          <input type="text" name="listing[description]" placeholder="A peaceful stay surrounded by pine forests with modern amenities." class="form-control">
+          <input type="text" name="listing[description]"
+            placeholder="A peaceful stay surrounded by pine forests with modern amenities." class="form-control"
+            required>
+            <div class="invalid-feedback">
+              Please add a brief description.
+            </div>
         </div>
 
         <div class="mb-3">
           <label for="image" class="form-label">Image-URL</label>
-          <textarea name="listing[image]" placeholder="https://example.com/images/cabin.jpg" class="form-control"></textarea>
+          <textarea name="listing[image]" placeholder="https://example.com/images/cabin.jpg"
+            class="form-control"></textarea>
         </div>
         <div class="row">
           <div class="mb-3 col-md-4">
-          <label for="price" class="form-label">Price</label>
-          <input type="text" name="listing[price]" placeholder="₹2500 / night" class="form-control">
+            <label for="price" class="form-label">Price</label>
+            <input  name="listing[price]" placeholder="₹2500 / night" class="form-control" required>
+            <div class="invalid-feedback">
+              Enter a valid price. 
+            </div>
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="listing[location]" placeholder="Shimla, Himachal Pradesh" class="form-control"
+              required>
+              <div class="invalid-feedback">
+                Specify your location.
+              </div>
+          </div>
         </div>
 
-        <div class="mb-3 col-md-8">
-          <label for="location" class="form-label">Location</label>
-          <input type="text" name="listing[location]" placeholder="Shimla, Himachal Pradesh" class="form-control">
-        </div>
-        </div>
 
-        
         <div class="mb-3">
           <label for="country" class="form-label">Country</label>
-          <input type="text" name="listing[country]" placeholder="India" class="form-control">
+          <input type="text" name="listing[country]" placeholder="India" class="form-control" required>
+          <div class="invalid-feedback">
+            Select your country.
+          </div>
         </div>
 
         <br>
