@@ -7,6 +7,15 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressErr = require("./utils/ExpressErr");
+const { listingSchema } = require("./schema.js");
+
+const validateListing = (req, res, next) => {
+  let { error } = listingSchema.validate(req.body);
+  if (error) {
+    let errMsg = error.details.map((el)=> el.message).join(",")
+    throw new ExpressErr(400, error);
+  }
+};
 
 // Serve(use) static files
 app.use(express.static(path.join(__dirname, "/public")));
@@ -41,10 +50,13 @@ app.get("/", (req, res) => {
 });
 
 //Index Route All Listing
-app.get("/listings", async (req, res) => {
-  let listings = await Listing.find();
-  res.render("listings/index.ejs", { listings });
-});
+app.get(
+  "/listings",
+  wrapAsync(async (req, res) => {
+    let listings = await Listing.find();
+    res.render("listings/index.ejs", { listings });
+  })
+);
 
 //New Listing
 app.get("/listings/new", (req, res) => {
@@ -53,44 +65,53 @@ app.get("/listings/new", (req, res) => {
 
 //POST request to /listings so that new listing data from the form actually gets saved to your database.
 app.post(
-  "/listings",
+  "/listings",validateListing,
   wrapAsync(async (req, res, next) => {
-    if (!req.body.listing) {
-      throw new ExpressErr(400, "Send Valid Data For Listing");
-    }
-    let newListing = new Listing(req.body.listing);
+    const newListing = new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings");
   })
 );
 
 //Show Route
-app.get("/listings/:id", async (req, res) => {
-  let { id } = req.params;
-  let listing = await Listing.findById(id);
-  res.render("listings/show.ejs", { listing });
-});
+app.get(
+  "/listings/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    let listing = await Listing.findById(id);
+    res.render("listings/show.ejs", { listing });
+  })
+);
 
 // Edit Route
-app.get("/listings/:id/edit", async (req, res) => {
-  let { id } = req.params;
-  let listing = await Listing.findById(id);
-  res.render("listings/edit.ejs", { listing });
-});
+app.get(
+  "/listings/:id/edit",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    let listing = await Listing.findById(id);
+    res.render("listings/edit.ejs", { listing });
+  })
+);
 
 //Update route
-app.put("/listings/:id", async (req, res) => {
-  let { id } = req.params;
-  await Listing.findByIdAndUpdate(id, { ...req.body.listing });
-  res.redirect(`/listings/${id}`);
-});
+app.put(
+  "/listings/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+    res.redirect(`/listings/${id}`);
+  })
+);
 
 //Delete Route
-app.delete("/listings/:id", async (req, res) => {
-  let { id } = req.params;
-  let deletedListing = await Listing.findByIdAndDelete(id);
-  res.redirect("/listings");
-});
+app.delete(
+  "/listings/:id",
+  wrapAsync(async (req, res) => {
+    let { id } = req.params;
+    let deletedListing = await Listing.findByIdAndDelete(id);
+    res.redirect("/listings");
+  })
+);
 
 // Catch-all route for 404
 // ✅ Works in Express 5
@@ -101,7 +122,8 @@ app.use((req, res, next) => {
 // Error handling middleware
 app.use((err, req, res, next) => {
   let { statusCode = 500, message = "Something went wrong" } = err;
-  res.status(statusCode).send(message);
+  res.status(statusCode).render("error.ejs", { message });
+  // res.status(statusCode).send(message);
 });
 
 app.listen(8080, () => {
