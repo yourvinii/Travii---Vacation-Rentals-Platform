@@ -30,7 +30,7 @@ The goal of Travii is to make travel **simpler, smarter, and more accessible**.
 
 | Home Page | Listings Page | Booking Page |
 |-----------|---------------|--------------|
-| ![Home](./assets/allListings.png) | ![ALL Listings](./assets/listingDetail.png) | ![Booking](screenshots/booking.png) |
+| ![Home](./assets/allListings.png) | ![ALL Listings](./assets/listingDetail.png) | ![Create New Listing](./assets/CreateNewListing.png) |
 
 *(Replace with your real screenshots once ready)*
 
