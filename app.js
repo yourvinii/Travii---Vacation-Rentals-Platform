@@ -5,11 +5,10 @@ const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressErr = require("./utils/ExpressErr");
+const session = require("express-session");
 
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
-
-
 
 // Serve(use) static files
 app.use(express.static(path.join(__dirname, "/public")));
@@ -37,6 +36,14 @@ main().then(() => {
 async function main() {
   await mongoose.connect(MONGO_URL);
 }
+
+const sessionOptions = {
+  secret: "mysupersecretcode",
+  resave: false,
+  saveUninitialized: true,
+};
+
+app.use(session(sessionOptions));
 
 //Home Route
 app.get("/", (req, res) => {
