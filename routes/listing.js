@@ -3,7 +3,7 @@ const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
 const { isLoggedIn, isOwner } = require("../middleware.js");
 const { validateListing } = require("../middleware.js");
-const listingController = require("../controller/listing.js");
+const listingController = require("../controller/listings.js");
 
 //Index Route All Listing
 router.get("/", wrapAsync(listingController.index));
