@@ -3,7 +3,7 @@
     <div class="col-8 offset-2">
 
       <h1>Create new Listing</h1>
-      <form method="POST" action="/listings" novalidate class="needs-validation">
+      <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
 
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
@@ -18,22 +18,23 @@
           <input type="text" name="listing[description]"
             placeholder="A peaceful stay surrounded by pine forests with modern amenities." class="form-control"
             required>
-            <div class="invalid-feedback">
-              Please add a brief description.
-            </div>
+          <div class="invalid-feedback">
+            Please add a brief description.
+          </div>
         </div>
 
         <div class="mb-3">
-          <label for="image" class="form-label">Image-URL</label>
-          <textarea name="listing[image]" placeholder="https://example.com/images/cabin.jpg"
-            class="form-control"></textarea>
+          <label for="image" class="form-label">Uplode Listing Image</label>
+          <input name="listing[image]" placeholder="https://example.com/images/cabin.jpg"
+            class="form-control" type ="file" ></input>
         </div>
+
         <div class="row">
           <div class="mb-3 col-md-4">
             <label for="price" class="form-label">Price</label>
-            <input  name="listing[price]" placeholder="₹2500 / night" class="form-control" required>
+            <input name="listing[price]" placeholder="₹2500 / night" class="form-control" required>
             <div class="invalid-feedback">
-              Enter a valid price. 
+              Enter a valid price.
             </div>
           </div>
 
@@ -41,9 +42,9 @@
             <label for="location" class="form-label">Location</label>
             <input type="text" name="listing[location]" placeholder="Shimla, Himachal Pradesh" class="form-control"
               required>
-              <div class="invalid-feedback">
-                Specify your location.
-              </div>
+            <div class="invalid-feedback">
+              Specify your location.
+            </div>
           </div>
         </div>
 
