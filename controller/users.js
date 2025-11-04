@@ -13,7 +13,7 @@ module.exports.signup = async (req, res) => {
       if (err) {
         return next();
       }
-      console.log(registerdUser);
+      // console.log(registerdUser);
       req.flash("success", "Welcome to Travii");
       res.redirect("/listings");
     });
