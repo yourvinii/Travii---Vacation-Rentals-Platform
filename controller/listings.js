@@ -23,7 +23,7 @@ module.exports.showListing = async (req, res) => {
     req.flash("error", "The listing you’re trying to access does not exist.");
     return res.redirect("/listings");
   }
-  // console.log(listing);
+  console.log(listing);
   res.render("listings/show.ejs", { listing });
 };
 
@@ -45,7 +45,12 @@ module.exports.renderEditForm = async (req, res) => {
     req.flash("error", "The listing you’re trying to access does not exist.");
     return res.redirect("/listings");
   }
-  res.render("listings/edit.ejs", { listing });
+  let originalImageUrl = listing.image.url;
+  originalImageUrl = originalImageUrl.replace(
+    "/upload",
+    "/upload/ar_1.0,c_fill,h_250,w_400/"
+  );
+  res.render("listings/edit.ejs", { listing, originalImageUrl });
 };
 
 module.exports.updateListing = async (req, res) => {
