@@ -2,8 +2,6 @@ if (process.env.Node_ENV != "production") {
   require("dotenv").config();
 }
 
-
-
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -12,6 +10,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressErr = require("./utils/ExpressErr");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -38,18 +37,32 @@ app.use(methodOverride("_method"));
 // use ejs-locals for all ejs templates
 app.engine("ejs", ejsMate);
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/travii";
+// const MONGO_URL = "mongodb://127.0.0.1:27017/travii";
+const dbURL = process.env.ATLASDB_URL;
 
 main().then(() => {
   console.log("DB Connection Successful");
 });
 
 async function main() {
-  await mongoose.connect(MONGO_URL);
+  await mongoose.connect(dbURL);
 }
 
+const store = MongoStore.create({
+  mongoUrl: dbURL,
+  crypto: {
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24 * 3600, // time period in seconds
+});
+
+store.on("error", () => {
+  console.log("ERROR IN MONGO SESSION STORE", err);
+});
+
 const sessionOptions = {
-  secret: "mysupersecretcode",
+  store,
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -58,11 +71,6 @@ const sessionOptions = {
     httpOnly: true,
   },
 };
-
-//Home Route
-app.get("/", (req, res) => {
-  res.send("Home Page");
-});
 
 app.use(session(sessionOptions));
 app.use(flash());

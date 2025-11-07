@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node":"22.15.0"
+  },
   "name": "travii",
   "version": "1.0.0",
   "description": "Travii is a modern, full-stack **vacation rental platform** where users can **discover, book, and manage stays** across the world.  \r The goal of Travii is to make travel **simpler, smarter, and more accessible**.",
@@ -21,12 +24,14 @@
   "dependencies": {
     "cloudinary": "^1.41.3",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
     "express": "^5.1.0",
     "express-session": "^1.18.2",
     "joi": "^18.0.1",
+    "leaflet": "^1.9.4",
     "method-override": "^3.0.0",
     "mongoose": "^8.18.3",
     "multer": "^2.0.2",
