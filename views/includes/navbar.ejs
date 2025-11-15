@@ -1,4 +1,54 @@
-<style>
+<header>
+  <a href="/listings" class="logo">
+    <i class="ri-home-heart-fill"></i> <span>Travii</span>
+  </a>
+
+  <ul class="navbar">
+    <li><a href="/listings" class="active">Home</a></li>
+    <li><a href="">About Us</a></li>
+    <li><a href="/listings/new">Become a host</a></li>
+
+  </ul>
+
+  <div class="main">
+    <% if(!currentUser) {%>
+      <a href="/login" class="user"><i class="ri-user-fill">Sign In</i></a>
+      <a href="/signup">Register</a>
+      <% } %>
+        <% if(currentUser){ %>
+          <a href="/logout">Logout</a>
+          <% } %>
+            <div class="bx bx-menu" id="menu-icon"></div>
+  </div>
+
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <style>
   .search-btn {
     background-color: red !important;
     color: white;
@@ -22,22 +72,35 @@
   }
 </style>
 
+
+
+
+
+
+
+
+
 <nav class="navbar navbar-expand-md bg-body-light sticky-top border-bottom">
   <div class="container-fluid">
+
     <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="/listings">Explore</a>
       </div>
+
       <div class="navbar-nav ms-auto">
         <form class="d-flex" role="search">
           <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations"  />
           <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
         </form>
       </div>
+
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">Become a host</a>
         <% if(!currentUser) {%>
@@ -51,3 +114,4 @@
     </div>
   </div>
 </nav>
+ -->
