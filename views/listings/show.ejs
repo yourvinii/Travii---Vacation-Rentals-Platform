@@ -34,6 +34,7 @@
 
 
     <% if(currentUser && listing.owner._id.equals(currentUser._id)) {%>
+
       <div class="btns mb-3">
         <a href="/listings/<%= listing._id  %>/edit" class="btn edit-btn col-1 offset-3">Edit</a>
         <br>
@@ -41,6 +42,7 @@
           <button class="btn btn-dark offset-5">Delete</button>
         </form>
       </div>
+  
       <% } %>
 
 
