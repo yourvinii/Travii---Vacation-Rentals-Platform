@@ -1,4 +1,63 @@
-<header>
+<nav>
+  <div class="nav1">
+    <!-- <img src="https://ik.imagekit.io/sheryians/light-logo_lNzGXRRlQ.png" alt=""> -->
+    <h4><a href=""><span id="brand-logo">Travii</span><br> <span id="brand-title">Vacation Rentals Platform</span></a></h4>
+  </div>
+
+  <div class="nav2">
+
+    <h4><a href="/listings">Home</a></h4>
+    <h4><a href="">About Us</a></h4>
+    <h4><a href="/listings/new">Become a host</a></h4>
+    <% if(!currentUser) {%>
+    <h4><a href="/login">Sign In</a></h4>
+    <h4><a href="/signup">Sign Up</a></h4>
+    <% } %>
+    <% if(currentUser){ %>
+      h4><a href="/logout">Logout Up</a></h4>
+      <% } %>
+
+    
+  </div>
+
+  <div class="nav3">
+    <h4><i class="ri-phone-line"></i></h4>
+    <h4><i class="ri-notification-2-line"></i></h4>
+    <h4><i class="ri-menu-3-line"></i></h4>
+  </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <header>
   <a href="/listings" class="logo">
     <i class="ri-home-heart-fill"></i> <span>Travii</span>
   </a>
@@ -7,14 +66,15 @@
     <li><a href="/listings" class="active">Home</a></li>
     <li><a href="">About Us</a></li>
     <li><a href="/listings/new">Become a host</a></li>
-
-  </ul>
-
-  <div class="main">
     <% if(!currentUser) {%>
       <a href="/login" class="user"><i class="ri-user-fill">Sign In</i></a>
       <a href="/signup">Register</a>
       <% } %>
+
+  </ul>
+
+  <div class="main">
+    
         <% if(currentUser){ %>
           <a href="/logout">Logout</a>
           <% } %>
@@ -25,7 +85,7 @@
 
 
 
-
+ -->
 
 
 
