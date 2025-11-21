@@ -1,3 +1,5 @@
+/*  
+
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +12,7 @@
   --bg-color: #fff;
   --text-color: gray;
   --main-color: #000000;
-  --logo-color:#FF385C;
+  --logo-color: #ff385c;
 }
 
 body {
@@ -20,6 +22,7 @@ body {
 }
 
 header {
+  
   position: fixed;
   width: 100%;
   top: 0;
@@ -31,21 +34,22 @@ header {
   background: transparent;
   padding: 28px 12%;
   transition: all 0.5s ease;
-  height: 5rem ;
-  background-color: #FCFCFC;
+  height: 70px;
+  background-color: #fcfcfc;
   border-bottom: 1px solid rgba(173, 171, 171, 0.553);
 }
 
 .logo {
   display: flex;
   align-items: center;
+  font-family: "Shadows Into Light", cursive;
+  font-style: normal;
 }
 
 .logo i {
   color: var(--logo-color);
   font-size: 28px;
   margin-right: 3px;
-
 }
 
 .logo span {
@@ -61,7 +65,7 @@ header {
 .navbar a {
   color: var(--text-color);
   font-size: 1.1rem;
-  font-weight: 500;
+  
   padding: 5px 0;
   margin: 0px 30px;
   transition: all 0.5s ease;
@@ -82,12 +86,11 @@ header {
 
 .main a {
   margin-right: 25px;
-color: var(--text-color);
-font-size: 1.1rem;
-font-weight: 500;
-transition: all 0.5s ease;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.5s ease;
 }
-
 
 .user {
   display: flex;
@@ -108,7 +111,6 @@ transition: all 0.5s ease;
   z-index: 10001;
   display: none;
 }
-
 
 @media (max-width: 1280px) {
   header {
@@ -153,5 +155,157 @@ transition: all 0.5s ease;
   }
   .navbar.open {
     right: 2%;
+  }
+}
+*/
+
+@font-face {
+  font-family: calligraphy;
+  src: url(./Dalton\ White.otf);
+}
+
+@font-face {
+  font-family: neu;
+  src: url("./NeueMachina-Regular_DQCmjH1st.ttf");
+}
+
+@font-face {
+  font-family: hell;
+  src: url("./HelveticaNowDisplay-Regular_5Mzhp8KlA8_CAVTbnsPOM.woff2");
+}
+
+:root {
+  --bg-color: #fff;
+  --text-color: rgb(42, 42, 42);
+  --main-color: #000000;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+/* Navbar */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 70px;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 100001;
+}
+
+.nav1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav1 h4 a {
+  text-decoration: none;
+}
+
+.nav1 img {
+  height: 45px;
+}
+
+#brand-logo {
+  font-family: "Montserrat";
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 500;
+  transition: all 0.5s ease;
+  color: #ff385c;
+}
+
+#brand-title {
+  font-family: "calligraphy";
+}
+
+.nav1 h4 {
+  font-family: "Montserrat";
+}
+
+.nav2 {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.nav2 h4 {
+  font-weight: 200;
+  font-size: 15px;
+  font-family: neu;
+  color: var(--text-color) !important;
+}
+
+
+
+
+.nav2 h4 a {
+  color: var(--text-color) !important;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+  padding-bottom: 3px;
+}
+
+.nav2 h4 a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: currentColor;
+  transform: translateX(-50%);
+  transition: width 0.4s ease;
+}
+
+.nav2 h4 a :hover::after {
+  width: 100%;
+}
+
+
+
+
+.nav2 h4 a:hover::after {
+  width: 100%;
+}
+
+
+
+/* nav 3  */
+
+.nav3 {
+  display: none;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav3 h4 {
+  font-family: neu;
+  font-size: 15px;
+  font-weight: 50px;
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 600px) {
+  nav {
+    padding: 10px 25px;
+    transition: 0.2s;
+  }
+  .nav1 h4 {
+    font-size: 12px;
+    transition: all 0.5s ease;
+  }
+  .nav2 {
+    display: none;
+  }
+  .nav3 {
+    display: flex;
   }
 }
